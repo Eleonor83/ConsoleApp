@@ -12,17 +12,20 @@ public class MenuService : IMenuService
 {
     private readonly IContactService _contactService = new ContactService();
 
+    /// <summary>
+    /// Metod för att visa Menyn med sina val som användaren kan välja utifrån.
+    /// </summary>
     public void MainMenu()
     {
         while (true)
         {
             DisplayMenuTitle("MENU OPTIONS");
-            Console.WriteLine($"{"1., -3"} Add New Contact");
-            Console.WriteLine($"{"2., -3"} View Contact List");
-            Console.WriteLine($"{"3., -3"} Display Contact Details");
-            Console.WriteLine($"{"4., -3"} Remove Contact");
-            Console.WriteLine($"{"5., -3"} Update Contact");
-            Console.WriteLine($"{"0., -3"} Exit");
+            Console.WriteLine($"{"1.", -3} Add New Contact");
+            Console.WriteLine($"{"2.", -3} View Contact List");
+            Console.WriteLine($"{"3.", -3} Display Contact Details");
+            Console.WriteLine($"{"4.", -3} Remove Contact");
+            Console.WriteLine($"{"5.", -3} Update Contact");
+            Console.WriteLine($"{"0.", -3} Exit");
             Console.WriteLine();
             Console.Write("Enter Menu Option: ");
             var option = Console.ReadLine();
@@ -57,7 +60,10 @@ public class MenuService : IMenuService
             Console.ReadKey();
         }
     }
-
+    /// <summary>
+    ///  Metod där man lägger in de olika parametrarna man vill till kontaktinfon.
+    /// </summary>
+    /// <param name="contact"></param>
     private void AddContactOption(IContact contact)
     {
 
@@ -100,6 +106,9 @@ public class MenuService : IMenuService
         DisplayPressAnyKey();
     }
 
+    /// <summary>
+    /// Metod där man genom att ange en mailadress kan få info om den finns i listan eller ej. 
+    /// </summary>
     private void ListContactOption()
     {
         DisplayMenuTitle("Contact List");
@@ -133,6 +142,9 @@ public class MenuService : IMenuService
         
     }
 
+    /// <summary>
+    /// Metod där man kan se alla kontakter i listan med sin information.
+    /// </summary>
     private void DisplayContactDetailsOption()
     {
         DisplayMenuTitle("Contact List");
@@ -169,6 +181,9 @@ public class MenuService : IMenuService
         DisplayPressAnyKey();
     }
 
+    /// <summary>
+    /// Metod för att ta bort en kontakt från listan genom att skriva in mailadressen till denne.
+    /// </summary>
     private void RemoveContactOption()
     {
         DisplayMenuTitle("Remove Contact");
@@ -199,11 +214,23 @@ public class MenuService : IMenuService
         DisplayPressAnyKey();
     }
 
-    private void UpdateContactOption()
-    {
+    /// <summary>
+    /// Satt med denna och såg sedan att den inte skulle vara med i uppgiften så har inte gjort klart den. Borde ta bort valet i menyn.
+    /// </summary>
+    //private void UpdateContactOption()
+    //{
+    //    DisplayMenuTitle("Update Contact");
+    //    Console.Write("Enter the email of the contact to update: ");
+    //    var email = Console.ReadLine();
 
-    }
+    //    var contactToUpdate = new Contact { Email = email! };
 
+    //    var existingContact = _contactService.GetContactFromList(contactToUpdate);
+
+    //}
+
+
+    /// Metod för att gå ur applikationen. 
     private void ExitApplicationOption()
     {
         Console.Clear();
@@ -213,7 +240,10 @@ public class MenuService : IMenuService
         if (option.Equals("y", StringComparison.OrdinalIgnoreCase))
             Environment.Exit(0);
     }
-
+    /// <summary>
+    /// Metod som visar det valda menyvalets titel.
+    /// </summary>
+    /// <param name="title"></param>
     private void DisplayMenuTitle(string title)
     {
         Console.Clear();
@@ -221,6 +251,9 @@ public class MenuService : IMenuService
         Console.WriteLine();
     }
 
+    /// <summary>
+    /// Metod för att be användaren trycka på valfri knapp för att gå vidare.
+    /// </summary>
     private void DisplayPressAnyKey()
     {
         Console.WriteLine("Press any key to continue.");
