@@ -1,5 +1,4 @@
-﻿using ConsoleApp.Interfaces;
-namespace ConsoleApp.Interfaces
+﻿namespace ConsoleApp.Interfaces
 {
     public class Contact : IContact
     {

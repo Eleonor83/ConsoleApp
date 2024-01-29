@@ -17,7 +17,7 @@ namespace ConsoleApp.Services
         {
             try
             {
-                using (var sw = new StreamWriter(_filePath)) 
+                using (var sw = new StreamWriter(_filePath))
                 {
                     sw.WriteLine(content);
                 }

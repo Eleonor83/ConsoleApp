@@ -20,18 +20,18 @@ public class MenuService : IMenuService
         while (true)
         {
             DisplayMenuTitle("MENU OPTIONS");
-            Console.WriteLine($"{"1.", -3} Add New Contact");
-            Console.WriteLine($"{"2.", -3} View Contact List");
-            Console.WriteLine($"{"3.", -3} Display Contact Details");
-            Console.WriteLine($"{"4.", -3} Remove Contact");
-            Console.WriteLine($"{"5.", -3} Update Contact");
-            Console.WriteLine($"{"0.", -3} Exit");
+            Console.WriteLine($"{"1.",-3} Add New Contact");
+            Console.WriteLine($"{"2.",-3} View Contact List");
+            Console.WriteLine($"{"3.",-3} Display Contact Details");
+            Console.WriteLine($"{"4.",-3} Remove Contact");
+            Console.WriteLine($"{"5.",-3} Update Contact");
+            Console.WriteLine($"{"0.",-3} Exit");
             Console.WriteLine();
             Console.Write("Enter Menu Option: ");
             var option = Console.ReadLine();
 
 
-            switch ( option )
+            switch (option)
             {
                 case "1":
                     IContact newContact = new Contact();
@@ -52,7 +52,7 @@ public class MenuService : IMenuService
                 case "0":
                     ExitApplicationOption();
                     break;
-                default: 
+                default:
                     Console.WriteLine("\n Invalid Option selected. Press any key to try again");
                     break;
             }
@@ -90,12 +90,12 @@ public class MenuService : IMenuService
         {
             case Enums.ServiceStatus.SUCCESSED:
                 Console.WriteLine("The contact was added successfully");
-            break;
+                break;
 
             case Enums.ServiceStatus.ALREADY_EXISTS:
                 Console.WriteLine("The contact already exists");
-            break;
-            
+                break;
+
             case Enums.ServiceStatus.FAILED:
                 Console.WriteLine("Failed when trying to add the contact to a contactlist.");
                 Console.WriteLine("See error message : " + res.Result.ToString());
@@ -139,7 +139,7 @@ public class MenuService : IMenuService
         }
 
         DisplayPressAnyKey();
-        
+
     }
 
     /// <summary>
@@ -236,7 +236,7 @@ public class MenuService : IMenuService
         Console.Clear();
         Console.WriteLine("Are you sure you want to exit to close this application? (y/n): ");
         var option = Console.ReadLine() ?? "";
-        
+
         if (option.Equals("y", StringComparison.OrdinalIgnoreCase))
             Environment.Exit(0);
     }

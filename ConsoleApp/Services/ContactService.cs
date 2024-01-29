@@ -44,7 +44,7 @@ namespace ConsoleApp.Services
 
             return response;
         }
-        
+
         /// <summary>
         /// Metod som raderar en kontakt från listan genom att jämföra mailadress med en existerande från listan och sedan tar bort den.
         /// </summary>
@@ -88,7 +88,7 @@ namespace ConsoleApp.Services
 
             return response;
         }
-        
+
         /// <summary>
         /// Metod som visar uppgifter till en specifik kontakt när man jämfört med deras emailadress om den finns i listan.
         /// </summary>
@@ -102,7 +102,7 @@ namespace ConsoleApp.Services
                 var content = _fileService.GetContentFromFile();
 
                 if (!string.IsNullOrEmpty(content))
-                    {
+                {
                     _contacts = JsonConvert.DeserializeObject<List<IContact>>(content)!;
                 }
 
@@ -188,7 +188,7 @@ namespace ConsoleApp.Services
                 var existingContact = _contacts.FirstOrDefault(x => x.Email == contact.Email);
 
                 if (existingContact != null)
-                {   
+                {
                     existingContact.FirstName = contact.FirstName;
                     existingContact.LastName = contact.LastName;
                     existingContact.PhoneNumber = contact.PhoneNumber;

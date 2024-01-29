@@ -1,6 +1,4 @@
-﻿using ConsoleApp.Models.Responses;
-
-namespace ConsoleApp.Interfaces
+﻿namespace ConsoleApp.Interfaces
 {
     public interface IContactService
     {
