@@ -16,6 +16,7 @@ namespace ConsoleApp.Tests
             var result = contactService.AddContactToList(contact);
 
             //Assert
+            Assert.NotNull(result);
             Assert.Equal(Enums.ServiceStatus.SUCCESSED, result.Status);
         }
     }
